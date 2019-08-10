@@ -1,0 +1,23 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+}
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.testng', name: 'testng', version: '6.11'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        testName "UnitTest"
+        suiteName "UnitTestSuite"
+    }
+}
